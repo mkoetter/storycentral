@@ -62,7 +62,7 @@ export default function StoryFilters({ onFilterChange }: StoryFiltersProps) {
             placeholder="Search stories..."
             value={filters.search}
             onChange={(e) => handleFilterChange('search', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
           />
         </div>
 
@@ -78,7 +78,7 @@ export default function StoryFilters({ onFilterChange }: StoryFiltersProps) {
             id="status"
             value={filters.status}
             onChange={(e) => handleFilterChange('status', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
           >
             <option value="">All Statuses</option>
             <option value="draft">Draft</option>
@@ -100,7 +100,7 @@ export default function StoryFilters({ onFilterChange }: StoryFiltersProps) {
             id="priority"
             value={filters.priority}
             onChange={(e) => handleFilterChange('priority', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
           >
             <option value="">All Priorities</option>
             <option value="low">Low</option>

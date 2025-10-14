@@ -211,7 +211,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               placeholder="Enter story title"
             />
           </div>
@@ -230,7 +230,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               placeholder="Brief description of the story"
             />
           </div>
@@ -249,7 +249,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                 onChange={(e) =>
                   setFormData({ ...formData, status: e.target.value as 'draft' | 'active' | 'archived' | 'completed' })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               >
                 <option value="draft">Draft</option>
                 <option value="active">Active</option>
@@ -271,7 +271,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                 onChange={(e) =>
                   setFormData({ ...formData, priority: e.target.value as 'low' | 'medium' | 'high' | 'urgent' })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -294,7 +294,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 placeholder="e.g., Politics, Sports, Business"
               />
             </div>
@@ -313,7 +313,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                 onChange={(e) =>
                   setFormData({ ...formData, deadline: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               />
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
               onChange={(e) =>
                 setFormData({ ...formData, tags: e.target.value })
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               placeholder="e.g., investigation, breaking, feature"
             />
           </div>
@@ -351,7 +351,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
               onChange={(e) =>
                 setFormData({ ...formData, notes: e.target.value })
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               placeholder="Additional notes and details"
             />
           </div>
@@ -390,7 +390,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                   onChange={(e) =>
                     updateJournalist(index, 'name', e.target.value)
                   }
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
                 <input
                   type="email"
@@ -399,7 +399,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                   onChange={(e) =>
                     updateJournalist(index, 'email', e.target.value)
                   }
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
                 <div className="flex gap-2">
                   <input
@@ -409,7 +409,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                     onChange={(e) =>
                       updateJournalist(index, 'role', e.target.value)
                     }
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   />
                   <button
                     type="button"
@@ -457,7 +457,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                     onChange={(e) =>
                       updateSource(index, 'name', e.target.value)
                     }
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   />
                   <button
                     type="button"
@@ -474,14 +474,14 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                   onChange={(e) =>
                     updateSource(index, 'contact', e.target.value)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
                 <textarea
                   placeholder="Notes about this source"
                   rows={2}
                   value={source.notes}
                   onChange={(e) => updateSource(index, 'notes', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
               </div>
             ))}
@@ -528,7 +528,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                         new Date(e.target.value)
                       )
                     }
-                    className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   />
                   <div className="flex gap-2">
                     <input
@@ -538,7 +538,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                       onChange={(e) =>
                         updateTimelineEvent(index, 'event', e.target.value)
                       }
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                     />
                     <button
                       type="button"
@@ -556,7 +556,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
                   onChange={(e) =>
                     updateTimelineEvent(index, 'description', e.target.value)
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
               </div>
             ))}
