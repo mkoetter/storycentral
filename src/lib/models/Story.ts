@@ -99,22 +99,22 @@ const StorySchema = new Schema<IStory>(
     ],
     journalists: [
       {
-        name: { type: String, required: true },
-        email: { type: String, required: true },
+        name: { type: String },
+        email: { type: String },
         role: { type: String, default: 'Reporter' },
       },
     ],
     sources: [
       {
-        name: { type: String, required: true },
+        name: { type: String },
         contact: { type: String },
         notes: { type: String },
       },
     ],
     timeline: [
       {
-        date: { type: Date, required: true },
-        event: { type: String, required: true },
+        date: { type: Date },
+        event: { type: String },
         description: { type: String },
       },
     ],
@@ -141,7 +141,7 @@ const StorySchema = new Schema<IStory>(
 )
 
 /**
- * Create slug from title before saving
+ * Create slug from title and clean up empty nested objects before saving
  */
 StorySchema.pre('save', function (next) {
   if (this.isModified('title')) {
@@ -152,6 +152,22 @@ StorySchema.pre('save', function (next) {
       .replace(/--+/g, '-')
       .trim()
   }
+
+  // Filter out empty journalists (those without name or email)
+  if (this.journalists) {
+    this.journalists = this.journalists.filter(j => j.name && j.email)
+  }
+
+  // Filter out empty sources (those without name)
+  if (this.sources) {
+    this.sources = this.sources.filter(s => s.name)
+  }
+
+  // Filter out empty timeline events (those without event)
+  if (this.timeline) {
+    this.timeline = this.timeline.filter(t => t.event && t.date)
+  }
+
   next()
 })
 
