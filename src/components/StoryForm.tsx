@@ -74,12 +74,24 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
 
       if (!response.ok) {
         const data = await response.json()
-        throw new Error(data.error || 'Failed to save story')
+        console.error('API Error Response:', data)
+
+        // Format validation error details
+        let errorMessage = data.error || 'Failed to save story'
+        if (data.details) {
+          const detailsArray = Object.entries(data.details).map(([key, value]: [string, any]) => {
+            return `${key}: ${value.message || value}`
+          })
+          errorMessage += '\n' + detailsArray.join('\n')
+        }
+
+        throw new Error(errorMessage)
       }
 
       const data = await response.json()
       router.push(`/stories/${data.data._id}`)
     } catch (err: any) {
+      console.error('Story submission error:', err)
       setError(err.message || 'An error occurred while saving the story')
       setLoading(false)
     }
@@ -185,7 +197,7 @@ export default function StoryForm({ story, isEdit = false }: StoryFormProps) {
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
           <p className="font-medium">Error</p>
-          <p className="text-sm">{error}</p>
+          <pre className="text-sm whitespace-pre-wrap">{error}</pre>
         </div>
       )}
 

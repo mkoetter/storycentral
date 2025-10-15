@@ -143,14 +143,30 @@ const StorySchema = new Schema<IStory>(
 /**
  * Create slug from title and clean up empty nested objects before saving
  */
-StorySchema.pre('save', function (next) {
+StorySchema.pre('save', async function (next) {
   if (this.isModified('title')) {
-    this.slug = this.title
+    const baseSlug = this.title
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')
       .replace(/\s+/g, '-')
       .replace(/--+/g, '-')
       .trim()
+
+    // Check for duplicate slug and add timestamp if needed
+    let slug = baseSlug
+    let counter = 1
+
+    // Only check for duplicates on new documents or if slug changed
+    if (this.isNew || this.isModified('slug')) {
+      while (await mongoose.models.Story.exists({ slug, _id: { $ne: this._id } })) {
+        slug = `${baseSlug}-${Date.now()}`
+        counter++
+        // Prevent infinite loop
+        if (counter > 10) break
+      }
+    }
+
+    this.slug = slug
   }
 
   // Filter out empty journalists (those without name or email)
